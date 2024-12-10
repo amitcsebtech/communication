@@ -147,3 +147,28 @@ function loadChatMessages(user1, user2) {
         displayMessage(message.sender, message.text);
     });
 }
+document.getElementById('loginForm')?.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    const email = document.getElementById('loginEmail').value;
+    const password = document.getElementById('loginPassword').value;
+
+    try {
+        const response = await fetch('http://localhost:5000/api/users/login', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ email, password })
+        });
+
+        const data = await response.json();
+        if (response.ok) {
+            localStorage.setItem('currentUser', email);
+            alert(data.message);
+            window.location.href = 'chat.html';
+        } else {
+            alert(data.message);
+        }
+    } catch (error) {
+        alert('Failed to connect to server.');
+    }
+});
