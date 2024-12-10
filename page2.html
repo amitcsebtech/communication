@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>CHAT WITH FRIEND</h1>
+
+        <!-- Select User to Chat -->
+        <div id="userSelection">
+            <input type="email" id="partnerEmail" placeholder="Enter friend's email" required>
+            <button id="startChat">Start Chat</button>
+        </div>
+
+        <!-- Chat Box -->
+        <div id="chatBox" style="display: none;">
+            <div id="messages" class="chat-messages"></div>
+            <form id="chatForm">
+                <input type="text" id="messageInput" placeholder="Type your message..." autocomplete="off">
+                <button type="submit">Send</button>
+            </form>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
